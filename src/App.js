@@ -6,9 +6,11 @@ import ProductPage from "./product"
 import { Switch, Route, Link, useHistory} from 'react-router-dom';
 import {Button} from "antd";
 import {DownloadOutlined} from "@ant-design/icons";
+import Home from "./kakao/index"
 
 function App() {
     const history =useHistory();
+    
     return (
         <div>
             <div id="header">
@@ -16,11 +18,17 @@ function App() {
                 <Link to="/">
                 <img src="/images/icons/잇츠마인.png" width="150"/>
                 </Link>
-                <Button size="large" onClick={function(){
+                <div>
+                    <Button id= "upload-button"size="large" onClick={function(){
                     history.push('/upload');
-                }}
-                icon={<DownloadOutlined/>}
-                >상품 업로드</Button>
+                    }}
+                    icon={<DownloadOutlined/>}
+                    >상품 업로드</Button>
+                    <Button size="large" onClick={function(){
+                        history.push('/kakao');
+                    }}
+                    >로그인</Button>
+                </div>
             </div>
             </div>
             <div id="body">
@@ -34,6 +42,10 @@ function App() {
                     <Route exact={true} path="/upload">
                         <UploadPage/>
                     </Route>
+                    <Route exact={true} path="/kakao">
+                        <Home/>
+                    </Route>
+
                 </Switch>
             </div>
             <div id="footer">
