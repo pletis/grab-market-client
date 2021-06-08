@@ -1,31 +1,6 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-#header {
-    height: 64px;
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid gray;
-}
-
-#body {
-    height: 100vh;
-    width: 1024px;
-    margin: 0 auto;
-    padding-bottom: 20px;
-}
-
-#footer {
-    height: 200px;
-    background-color: rgb(230, 230, 230);
-}
-
 #banner {
-    height: 300px;
+    max-height: 300px;
 }
-
 
 #banner>img {
     width: 100%;
@@ -113,3 +88,4 @@ body {
 #product-headline {
     margin-top: 8px;
 }
+

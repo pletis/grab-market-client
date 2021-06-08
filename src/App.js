@@ -6,7 +6,7 @@ import ProductPage from "./product"
 import { Switch, Route, Link, useHistory} from 'react-router-dom';
 import {Button} from "antd";
 import {DownloadOutlined} from "@ant-design/icons";
-import Home from "./kakao/index"
+import Home from "./login/index"
 
 function App() {
     const history =useHistory();
@@ -28,6 +28,10 @@ function App() {
                         history.push('/kakao');
                     }}
                     >로그인</Button>
+                    <Button size="large" onClick={function(){
+                        history.push('/kakao');
+                    }}
+                    >회원가입</Button>
                 </div>
             </div>
             </div>
@@ -45,12 +49,9 @@ function App() {
                     <Route exact={true} path="/kakao">
                         <Home/>
                     </Route>
-
                 </Switch>
             </div>
-            <div id="footer">
-                
-            </div>
+            <div id="footer"></div>
         </div>
     );
 }
