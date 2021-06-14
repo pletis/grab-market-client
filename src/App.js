@@ -1,12 +1,14 @@
 import 'antd/dist/antd.css';
 import './App.css';
 import MainPageComponent from './main/index.js';
-import UploadPage from "./upload"
-import ProductPage from "./product"
+import UploadPage from "./upload";
+import ProductPage from "./product";
+import LoginPage from "./login/index";
+import RegisterPage from "./register/index";
 import { Switch, Route, Link, useHistory} from 'react-router-dom';
 import {Button} from "antd";
 import {DownloadOutlined} from "@ant-design/icons";
-import Home from "./login/index"
+
 
 function App() {
     const history =useHistory();
@@ -25,11 +27,11 @@ function App() {
                     icon={<DownloadOutlined/>}
                     >상품 업로드</Button>
                     <Button size="large" onClick={function(){
-                        history.push('/kakao');
+                        history.push('/login');
                     }}
                     >로그인</Button>
                     <Button size="large" onClick={function(){
-                        history.push('/kakao');
+                        history.push('/register');
                     }}
                     >회원가입</Button>
                 </div>
@@ -46,8 +48,11 @@ function App() {
                     <Route exact={true} path="/upload">
                         <UploadPage/>
                     </Route>
-                    <Route exact={true} path="/kakao">
-                        <Home/>
+                    <Route exact={true} path="/login">
+                        <LoginPage/>
+                    </Route>
+                    <Route exact={true} path="/register">
+                        <RegisterPage/>
                     </Route>
                 </Switch>
             </div>
