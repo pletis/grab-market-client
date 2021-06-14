@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { Form, Input,Checkbox, Button,} from 'antd';
+import { Form, Input,Checkbox, Button, message} from 'antd';
 import './index.css';
+import {useHistory} from "react-router-dom";
+import { API_URL } from '../config/constants';
+import axios from 'axios';
+
 
 const formItemLayout = {
   labelCol: {
@@ -34,10 +38,24 @@ const tailFormItemLayout = {
 };
 
 function RegistrationForm () {
+
   const [form] = Form.useForm();
+  const history = useHistory();
 
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    axios.post(`/register`,{
+            email: values.email,
+            password : values.password,
+            confirm : values.confirm,
+            nickname : values.nickname,
+            phone : values.phone
+        }).then((result) => {
+            console.log(result);
+            history.replace('/')
+        }).catch((error) => {
+            console.error(error);
+            message.error(`에러가 발생했습니다. ${error.message}`)
+        })
   };
 
   return (
