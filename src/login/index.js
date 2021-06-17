@@ -1,10 +1,10 @@
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './index.css';
+import axios from 'axios';
 
 function LoginPage() {
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
   };
 
   return (
@@ -21,7 +21,7 @@ function LoginPage() {
         rules={[
           {
             required: true,
-            message: 'Please input your Username!',
+            message: '아이디를 입력해주세요.',
           },
         ]}
       >
@@ -43,7 +43,6 @@ function LoginPage() {
         />
       </Form.Item>
       
-
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button">
           로그인
